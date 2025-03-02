@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+part "book_entites.g.dart";
 
 @HiveType(typeId: 0)
 class BookEntites {
