@@ -15,7 +15,7 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failuer, List<BookEntites>>> fetchFeaturedBooks() async {
     try {
-      var booksList = await homeRemotDataSource.fetchFeaturedBooks();
+      var booksList = homeLocalDataSource.fetchFeaturedBooks();
       if (booksList.isNotEmpty) {
         return right(booksList);
       }
@@ -33,7 +33,7 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failuer, List<BookEntites>>> fetchNewsBooks() async {
     try {
-      var booksList = await homeRemotDataSource.fetchNewsBooks();
+      var booksList = homeLocalDataSource.fetchNewsBooks();
       if (booksList.isNotEmpty) {
         return right(booksList);
       }
