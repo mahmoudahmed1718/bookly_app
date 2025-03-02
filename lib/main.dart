@@ -3,7 +3,10 @@ import 'package:bookly_app/core/utils/app_routers.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+import 'package:hive_flutter/adapters.dart';
+
+void main() async {
+  await Hive.initFlutter();
   runApp(const Bookly());
 }
 
