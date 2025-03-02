@@ -14,13 +14,12 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
-  double? averageRating;
-  num? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
   PanelizationSummary? panelizationSummary;
   ImageLinks? imageLinks;
+  num? averageRating;
   String? language;
   String? previewLink;
   String? infoLink;
@@ -37,13 +36,12 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
-    this.averageRating,
-    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
     this.panelizationSummary,
     this.imageLinks,
+    this.averageRating,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -52,7 +50,8 @@ class VolumeInfo {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: json['authors'] as List<String>?,
+        averageRating: json['averageRating'] as num?,
+        authors: (json['authors'] as List?)?.map((e) => e.toString()).toList(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -65,9 +64,8 @@ class VolumeInfo {
                 json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
-        categories: json['categories'] as List<String>?,
-        averageRating: (json['averageRating'] as num?)?.toDouble(),
-        ratingsCount: json['ratingsCount'] as int?,
+        categories:
+            (json['categories'] as List?)?.map((e) => e.toString()).toList(),
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
@@ -87,6 +85,7 @@ class VolumeInfo {
   Map<String, dynamic> toJson() => {
         'title': title,
         'authors': authors,
+        'averageRating': averageRating,
         'publisher': publisher,
         'publishedDate': publishedDate,
         'description': description,
@@ -96,8 +95,6 @@ class VolumeInfo {
         'pageCount': pageCount,
         'printType': printType,
         'categories': categories,
-        'averageRating': averageRating,
-        'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
