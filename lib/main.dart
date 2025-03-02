@@ -6,7 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  await Hive.openBox(kFeatuedBox);
+  await Hive.openBox(kNewbox);
   runApp(const Bookly());
 }
 
