@@ -1,4 +1,4 @@
-class HomeEntites {
+class BookEntites {
   final String id;
   final String title;
   final String imageUrl;
@@ -6,6 +6,6 @@ class HomeEntites {
   final num price;
   final num rage;
 
-  HomeEntites(this.id, this.title, this.imageUrl, this.autherName, this.price,
+  BookEntites(this.id, this.title, this.imageUrl, this.autherName, this.price,
       this.rage);
 }
